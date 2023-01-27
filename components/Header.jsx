@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "context/AppContext";
-import Link from "next/link";
 
 const currencies = [
   { name: "usd", symbol: "$" },

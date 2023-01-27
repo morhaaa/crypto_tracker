@@ -65,7 +65,7 @@ const TrendingCoins = () => {
   return (
     <div className="relative w-screen h-[65vh] md:h-[65vh]">
       <Image src={Banner} fill className="object-cover z-0" />
-      <div className="z-50 absolute left-0 right-0 mx-auto py-8">
+      <div className="z-50 absolute h-[65vh] left-0 right-0 mx-auto py-8">
         <div className="w-full text-center">
           {" "}
           <h1 className="font-extrabold text-transparent text-5xl md:text-6xl lg:text-7xl bg-clip-text bg-gradient-to-b from-gray-200 to-gray-400 py-2">

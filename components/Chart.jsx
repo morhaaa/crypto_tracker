@@ -131,7 +131,7 @@ const Chart = ({ coin }) => {
           <button
             key={id}
             onClick={() => (setDays(days.value), setActive(days.value))}
-            className={`border border-violet-300 w-[80px] md:w-[150px]  py-2 text-gray-100 font-bold rounded-full ${
+            className={`border border-violet-300 w-[80px] md:w-[150px] hover:scale-110 transition duration-300 ease-out  py-2 text-gray-100 font-bold rounded-full ${
               active === days.value ? "bg-violet-400" : ""
             }`}
           >
