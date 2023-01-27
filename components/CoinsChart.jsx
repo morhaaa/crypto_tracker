@@ -54,8 +54,8 @@ const CoinsChart = () => {
         Today's Cryptocurrency Prices by Market Cap
       </p>
 
-      <div className="px-4  overflow-x-scroll md:px-20">
-        <div className=" w-[170vw] md:w-full">
+      <div className="px-4  md:px-20">
+        <div className=" w-full md:w-full">
           <input
             type="text"
             placeholder="Search For a Crypto Currency..."
@@ -63,70 +63,72 @@ const CoinsChart = () => {
             className="w-full rounded-lg px-4 py-2 placeholder-gray-400 bg-transparent border border-gray-700 text-gray-400"
           />
         </div>
-        <div className="py-6 w-[170vw] md:w-full">
-          <div className="flex w-full bg-slate-500 text-gray-200 text-lg italic text-end font-medium py-2  px-10 rounded-t-lg">
-            <div className="basis-1/4 text-start">Name</div>
-            <div className="basis-1/4 ">24h change</div>
-            <div className="basis-1/4">Price </div>
-            <div className="basis-1/4">Market Cap</div>
-          </div>
+        <div className="overflow-x-scroll">
+          <div className="py-6   w-[170vw]   md:w-full">
+            <div className="flex w-full bg-slate-500 text-gray-200 text-lg italic text-end font-medium py-2  px-10 rounded-t-lg">
+              <div className="basis-1/4 text-start">Name</div>
+              <div className="basis-1/4 ">24h change</div>
+              <div className="basis-1/4">Price </div>
+              <div className="basis-1/4">Market Cap</div>
+            </div>
 
-          {loading === true ? (
-            <div className="flex w-full h-full items-center justify-center">
-              {" "}
-              <Dna
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="dna-loading"
-                wrapperStyle={{}}
-                wrapperClass="dna-wrapper"
-              />{" "}
-            </div>
-          ) : (
-            <div>
-              {handleSearch()
-                .slice((page - 1) * 10, (page - 1) * 10 + 10)
-                .map((coin, id) => (
-                  <div
-                    onClick={() => router.push(`/${coin.id}`)}
-                    key={id}
-                    className="flex md:w-full text-end md:px-10 py-4 text-gray-200  text-lg cursor-pointer border-b border-gray-600 hover:bg-gray-600"
-                  >
-                    <div className="basis-1/4 text-start flex items-center gap-4">
-                      <Image src={coin.image} width="45" height="45" />
-                      <p className="font-semibold">{coin.name}</p>
-                    </div>
+            {loading === true ? (
+              <div className="flex w-full h-full items-center justify-center">
+                {" "}
+                <Dna
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="dna-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="dna-wrapper"
+                />{" "}
+              </div>
+            ) : (
+              <div>
+                {handleSearch()
+                  .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                  .map((coin, id) => (
                     <div
-                      className={
-                        coin?.price_change_percentage_24h < 0
-                          ? "text-red-600 basis-1/4"
-                          : "text-green-600 basis-1/4"
-                      }
+                      onClick={() => router.push(`/${coin.id}`)}
+                      key={id}
+                      className="flex md:w-full text-end md:px-10 py-4 text-gray-200  text-lg cursor-pointer border-b border-gray-600 hover:bg-gray-600"
                     >
-                      {coin.price_change_percentage_24h.toFixed(2)}%
+                      <div className="basis-1/4 text-start flex items-center gap-4">
+                        <Image src={coin.image} width="45" height="45" />
+                        <p className="font-semibold">{coin.name}</p>
+                      </div>
+                      <div
+                        className={
+                          coin?.price_change_percentage_24h < 0
+                            ? "text-red-600 basis-1/4"
+                            : "text-green-600 basis-1/4"
+                        }
+                      >
+                        {coin.price_change_percentage_24h.toFixed(2)}%
+                      </div>
+                      <div className="basis-1/4">
+                        {coin.current_price.toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}{" "}
+                        {symbol}
+                      </div>
+                      <div className="basis-1/4">
+                        {coin.market_cap.toLocaleString("en-US")} {symbol}
+                      </div>
                     </div>
-                    <div className="basis-1/4">
-                      {coin.current_price.toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}{" "}
-                      {symbol}
-                    </div>
-                    <div className="basis-1/4">
-                      {coin.market_cap.toLocaleString("en-US")} {symbol}
-                    </div>
-                  </div>
-                ))}
-            </div>
-          )}
-          <Pagination
-            postsPerPage={10}
-            page={page}
-            setActualPage={setActualPage}
-            totalPosts={handleSearch().length}
-          />
+                  ))}
+              </div>
+            )}
+          </div>
         </div>
+        <Pagination
+          postsPerPage={10}
+          page={page}
+          setActualPage={setActualPage}
+          totalPosts={handleSearch().length}
+        />
       </div>
     </div>
   );
