@@ -31,8 +31,6 @@ const Coins = () => {
     id == undefined ? "" : fetchCoin();
   }, [id]);
 
-  console.log(coin);
-
   return (
     <>
       <Head>
