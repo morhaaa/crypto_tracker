@@ -14,18 +14,18 @@ const TrendingCoins = () => {
   const { currency, symbol } = useAppContext();
   const [trendingCoins, setTrendingCoins] = useState([]);
 
-  const fetchTrendingCoins = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(Trending("usd"));
-      setTrendingCoins(data);
-    } catch (err) {
-      console.log(err);
-    }
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const fetchTrendingCoins = async () => {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(Trending("usd"));
+        setTrendingCoins(data);
+      } catch (err) {
+        console.log(err);
+      }
+      setLoading(false);
+    };
+
     fetchTrendingCoins(), setLoading(false);
   }, [currency]);
 
@@ -35,14 +35,17 @@ const TrendingCoins = () => {
       className="flex py-2"
       onClick={() => router.push(`/${coin.id}`)}
     >
-      <div className="bg-gradient-to-br from-gray-800 to-gray-700 bg-opacity-20 backdrop-blur-xl rounded-2xl p-5 flex flex-col gap-3 items-center cursor-pointer">
-        <div className="relative h-[80px] w-[80px]">
-          {" "}
-          <Image src={coin.image} fill className="object-cover" />
+      <div className="border border-slate-800 bg-[#0f172a] shadow-md rounded-2xl w-[140px] xl:w-[160px] h-[200px] flex flex-col gap-3 items-center justify-center cursor-pointer">
+        <div className="relative h-[50px] w-[50px]">
+          <Image
+            src={coin.image}
+            fill
+            className="object-cover"
+            alt={coin.symbol}
+          />
         </div>
 
-        <div className="flex gap-2 items-center  font-bold">
-          {" "}
+        <div className="flex gap-2 items-center font-bold">
           <p className="text-gray-300">{coin.symbol.toUpperCase()}</p>
           <p
             className={
@@ -54,8 +57,7 @@ const TrendingCoins = () => {
             {coin?.price_change_percentage_24h?.toFixed(2)}%
           </p>
         </div>
-        <p className="text-gray-200 font-bold">
-          {" "}
+        <p className="text-gray-200 text-sm">
           {symbol} {coin?.current_price.toFixed(2)}
         </p>
       </div>
@@ -63,58 +65,41 @@ const TrendingCoins = () => {
   ));
 
   return (
-    <div className="relative w-screen h-[65vh] md:h-[65vh]">
-      <Image src={Banner} fill className="object-cover z-0" />
-      <div className="z-50 absolute h-[65vh] left-0 right-0 mx-auto py-8">
-        <div className="w-full text-center">
-          {" "}
-          <h1 className="font-extrabold text-transparent text-5xl md:text-6xl lg:text-7xl bg-clip-text bg-gradient-to-b from-gray-200 to-gray-400 py-2">
-            Crypto Tracker
-          </h1>
-          <p className="text-gray-300 md:text-lg text-sm">
-            Get All The Info Regarding Your Favorite Crypto Currency
-          </p>
-        </div>
-
-        <p className="text-center  pt-10  font-bold text-gray-200">
-          TRENDING COINS 🔥
-        </p>
-
-        <div className="px-10 md:px-20">
-          {loading === true ? (
-            <div className="flex w-full h-full items-center justify-center">
-              {" "}
-              <Dna
-                visible={true}
-                height="80"
-                width="80"
-                ariaLabel="dna-loading"
-                wrapperStyle={{}}
-                wrapperClass="dna-wrapper"
-              />{" "}
-            </div>
-          ) : (
-            <AliceCarousel
-              mouseTracking
-              infinite
-              autoPlayInterval={1500}
-              animationDuration={1500}
-              disableDotsControls
-              disableButtonsControls
-              responsive={{
-                0: {
-                  items: 2,
-                },
-                512: {
-                  items: 3,
-                },
-                1024: { items: 5 },
-              }}
-              items={items}
-              autoPlay
+    <div className="py-6  px-4 md:px-8 lg:px-10  flex flex-col gap-y-2 rounded-xl bg-gray-700/80 my-10 border border-slate-900">
+      <p className=" text-gray-200 font-semibold text-xl">Trending coins 🔥</p>
+      <div className="">
+        {loading === true ? (
+          <div className="flex w-full h-full items-center justify-center">
+            <Dna
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
             />
-          )}
-        </div>
+          </div>
+        ) : (
+          <AliceCarousel
+            mouseTracking
+            infinite
+            autoPlayInterval={1500}
+            animationDuration={1500}
+            disableDotsControls
+            disableButtonsControls
+            responsive={{
+              0: {
+                items: 2,
+              },
+              512: {
+                items: 3,
+              },
+              1024: { items: 5 },
+            }}
+            items={items}
+            autoPlay
+          />
+        )}
       </div>
     </div>
   );
