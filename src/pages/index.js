@@ -1,12 +1,14 @@
 import Head from "next/head";
-import TrendingCoins from "components/TrendingCoins";
-import CoinsChart from "components/CoinsChart";
+import TrendingCoins from "@/components/TrendingCoins";
+import CoinsChart from "@/components/CoinsChart";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
+
   useEffect(() => {}, [router]);
+
   return (
     <>
       <Head>

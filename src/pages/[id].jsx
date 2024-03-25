@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import { useAppContext } from "context/AppContext";
 import ReactHtmlParser from "react-html-parser";
-import Chart from "../../components/Chart";
+import Chart from "../components/Chart";
 import { Dna } from "react-loader-spinner";
 
 const Coins = () => {

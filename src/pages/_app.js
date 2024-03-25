@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { Wrapper } from "context/AppContext";
 import "react-alice-carousel/lib/alice-carousel.css";
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Router } from "next/router";
 
