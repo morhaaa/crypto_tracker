@@ -2,9 +2,18 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between py-2 px-2 md:px-10 bg-gradient-to-r from-gray-900 to-gray-800 min-h-[5vh]">
-      <div className="flex w-full justify-between border-t italic text-gray-200 text-xs md:text-sm font-semibold">
-        <div>Crypto Tracker ©</div> <div>Made By Mohamed Rhanmi</div>
+    <footer className="bg-slate-900 py-6 flex justify-center px-6 text-zinc-500 text-xs w-full ">
+      <div>
+        &copy; 2024{" "}
+        <a
+          href="https://www.mohamedrhanmi.com"
+          target="_blank"
+          className="cursor-pointer hover:underline"
+        >
+          {" "}
+          Rhanmi Solution
+        </a>
+        . All rights reserved.
       </div>
     </footer>
   );
