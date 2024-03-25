@@ -9,18 +9,21 @@ const Pagination = ({ postsPerPage, totalPosts, setActualPage, page }) => {
   }
 
   return (
-    <nav className="py-3 w-full">
-      <div className="flex gap-4 justify-center items-center text-lg text-gray-200 font-semibold ">
+    <nav className="py-3 w-full flex justify-center">
+      <div className="flex gap-2 items-center text text-gray-200 font-medium">
         <IoIosArrowBack
           onClick={() => setActualPage(page == 1 ? 1 : page - 1)}
-          className="cursor-pointer"
+          disabled={page === 1}
+          className={page !== 1 ? "cursor-pointer" : "opacity-0"}
         />
-        <ul className="flex gap-4 ">
+        <ul className="flex gap-2 ">
           {pages.map((number, id) => (
             <li
               key={id}
               onClick={() => setActualPage(number)}
-              className="cursor-pointer"
+              className={`px-2 rounded-md ${
+                page == number ? " bg-gray-900" : "cursor-pointer"
+              }`}
             >
               {number}
             </li>
@@ -28,7 +31,8 @@ const Pagination = ({ postsPerPage, totalPosts, setActualPage, page }) => {
         </ul>
         <IoIosArrowForward
           onClick={() => setActualPage(page == 10 ? 10 : page + 1)}
-          className="cursor-pointer"
+          disabled={page === pages.length}
+          className={pages.length !== page ? "cursor-pointer" : "opacity-0"}
         />
       </div>
     </nav>
