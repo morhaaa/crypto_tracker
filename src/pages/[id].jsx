@@ -49,7 +49,7 @@ const Coins = () => {
           />
         ) : (
           <div className="flex-1 min-h-full flex justify-center px-6 pt-6 items-center ">
-            <div className="bg-gradient-to-bl from-gray-700/20 via-gray-700/40 to-gray-700/60 border border-slate-800 rounded-md drop-shadow-md flex flex-col lg:flex-row items-center gap-4 py-2 sm:py-4 md:py-6 px-4 lg:px-8 w-[95vw] min-h-full">
+            <div className="bg-gradient-to-bl from-gray-700/20 via-gray-700/40 to-gray-700/60 border border-slate-800 rounded-md drop-shadow-md flex flex-col lg:flex-row items-center gap-4 py-2 sm:py-4 md:py-6 px-4 lg:px-8 w-[90vw] md:w-[92vw] lg:w-[95vw] min-h-full">
               <InfoCoin coin={coin} />
               <CandlestickChart coin={coin} />
             </div>

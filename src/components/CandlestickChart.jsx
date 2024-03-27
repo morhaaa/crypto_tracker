@@ -136,7 +136,7 @@ const CandlestickChart = ({ coin }) => {
   };
 
   return (
-    <div className="flex-1 w-full h-full">
+    <div className="flex-1 w-full">
       <HighchartsReact
         highcharts={Highcharts}
         containerProps={{ style: { width: "100%", height: "100%" } }}
