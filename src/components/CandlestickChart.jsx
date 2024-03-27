@@ -83,54 +83,54 @@ const CandlestickChart = ({ coin }) => {
         {
           type: "month",
           count: 1,
-          text: "1m", // Personalizza il testo per la selezione di un mese
+          text: "1m", // Customize the text for selecting one month
         },
         {
           type: "month",
           count: 3,
-          text: "3m", // Personalizza il testo per la selezione di tre mesi
+          text: "3m", // Customize the text for selecting three months
         },
         {
           type: "month",
           count: 6,
-          text: "6m", // Personalizza il testo per la selezione di sei mesi
+          text: "6m", // Customize the text for selecting six months
         },
         {
           type: "all",
-          text: "1y", // Personalizza il testo per la selezione di tutti i dati
+          text: "1y", // Customize the text for selecting all data
         },
       ],
       buttonTheme: {
-        fill: "transparent", // Colore di riempimento del pulsante
-        stroke: "#334155", // Colore del bordo del pulsante
-        "stroke-width": 0, // Spessore del bordo del pulsante
-        r: 3, // Raggio del bordo del pulsante
+        fill: "transparent", // Button fill color
+        stroke: "#334155", // Button border color
+        "stroke-width": 0, // Button border thickness
+        r: 3, // Button border radius
         style: {
-          color: "#6b7280", // Colore dei testi per la selezione delle date
+          color: "#6b7280", // Text color for date selection
         },
         states: {
           hover: {
-            fill: "#cbd5e1", // Colore di riempimento al passaggio del mouse sul pulsante
+            fill: "#cbd5e1", // Fill color on button hover
             style: {
-              color: "#020617", // Colore dei testi al passaggio del mouse sul pulsante
+              color: "#020617", // Text color on button hover
             },
           },
           select: {
-            fill: "#e2e8f0", // Colore di riempimento del pulsante selezionato
+            fill: "#e2e8f0", // Fill color of the selected button
             style: {
-              color: "#0f172a", // Colore dei testi del pulsante selezionato
+              color: "#0f172a", // Text color of the selected button
             },
           },
         },
       },
-      inputBoxBorderColor: "black", // Colore del bordo della casella di input per la data
-      inputBoxWidth: 120, // Larghezza della casella di input per la data
-      inputBoxHeight: 18, // Altezza della casella di input per la data
+      inputBoxBorderColor: "black", // Color of the input box border for date
+      inputBoxWidth: 120, // Width of the input box for date
+      inputBoxHeight: 18, // Height of the input box for date
       inputStyle: {
-        color: "#cbd5e1", // Colore del testo all'interno della casella di input
+        color: "#cbd5e1", // Text color inside the input box
       },
       labelStyle: {
-        color: "#cbd5e1", // Colore dei testi per la selezione delle date
+        color: "#cbd5e1", // Text color for date selection
       },
     },
   };
