@@ -22,7 +22,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <nav className="p-3 border-b  bg-gray-700/80 border-slate-800 flex justify-between items-center drop-shadow-2xl">
+    <nav className="py-3 px-6 border-b  bg-gradient-to-r from-transparent via-transparent to-slate-800/50 border-slate-800 flex justify-between items-center drop-shadow-2xl">
       <h1
         onClick={() => {
           router.push("/");
@@ -34,11 +34,8 @@ const Header = () => {
 
       <Select
         onValueChange={(e) => {
-          console.log(e);
           setCurrency(e);
-          setSymbol(
-            currencies.map((value) => (value.name == e ? value.symbol : ""))
-          );
+          setSymbol(currencies.find((value) => value.name === e)?.symbol || "");
         }}
       >
         <SelectTrigger className="w-[80px] bg-transparent text-white border-none">
