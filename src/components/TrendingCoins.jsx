@@ -5,7 +5,6 @@ import { useAppContext } from "context/AppContext";
 import { useRouter } from "next/router";
 import AliceCarousel from "react-alice-carousel";
 import Image from "next/image";
-import Banner from "public/Banner.jpg";
 import { Dna } from "react-loader-spinner";
 
 const TrendingCoins = () => {
@@ -35,7 +34,7 @@ const TrendingCoins = () => {
       className="flex py-2"
       onClick={() => router.push(`/${coin.id}`)}
     >
-      <div className="border border-slate-800 bg-[#0f172a] shadow-md rounded-2xl w-[140px] xl:w-[160px] h-[200px] flex flex-col gap-3 items-center justify-center cursor-pointer">
+      <div className="border border-slate-800 bg-gradient-to-bl from-gray-900 via-gray-900 to-gray-900/90 shadow-md rounded-2xl w-[140px] xl:w-[160px] h-[200px] flex flex-col gap-3 items-center justify-center cursor-pointer">
         <div className="relative h-[50px] w-[50px]">
           <Image
             src={coin.image}
