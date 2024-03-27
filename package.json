@@ -12,6 +12,7 @@
     "@badrap/bar-of-progress": "^0.2.2",
     "@next/font": "13.1.5",
     "@radix-ui/react-select": "^2.0.0",
+    "@vercel/analytics": "^1.2.2",
     "axios": "^1.2.3",
     "chart.js": "^4.2.0",
     "class-variance-authority": "^0.7.0",
