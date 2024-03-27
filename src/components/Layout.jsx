@@ -4,11 +4,13 @@ import Header from "./Header";
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className="min-h-screen w-screen flex flex-col">
       <Header />
-      <main>{children}</main>
+      <main className="flex-1 bg-[#02010a] min-h-full flex flex-col">
+        {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
